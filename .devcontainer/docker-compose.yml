@@ -1,0 +1,12 @@
+version: '3.9'
+services:
+  vercel-nestjs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: /bin/sh -c "while sleep 1000; do :; done"
+    volumes:
+      - ../:/workspaces/vercel-nestjs
+      - vercel-nestjs-volume:/workspaces/vercel-nestjs/node_modules
+volumes:
+  vercel-nestjs-volume:
